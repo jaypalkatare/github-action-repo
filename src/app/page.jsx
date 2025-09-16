@@ -524,7 +524,7 @@ export default function Home() {
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-5xl font-bold text-center mb-12 relative">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 animate-gradient">
-                            Universal Image Converter 01
+                            Universal Image Converter 0111
                         </span>
                         {/* Decorative elements */}
                         <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
