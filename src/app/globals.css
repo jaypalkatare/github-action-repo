@@ -1,0 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '../styles/shootingstar.css';
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.animate-gradient {
+  background-size: 300%;
+  -webkit-animation: animatedgradient 6s ease infinite alternate;
+  animation: animatedgradient 6s ease infinite alternate;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add these new styles for enhanced animations */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.hover-float:hover {
+  animation: softFloat 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar styles (if not already present) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.3);
+  border-radius: 4px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes flashColors {
+  0% {
+    background: linear-gradient(to bottom right, 
+      rgba(199, 210, 254, 0.8),  /* indigo-100 */
+      rgba(221, 214, 254, 0.8),  /* purple-100 */
+      rgba(252, 231, 243, 0.8)   /* pink-100 */
+    );
+  }
+  33% {
+    background: linear-gradient(to bottom right,
+      rgba(224, 242, 254, 0.8),  /* light blue */
+      rgba(236, 254, 255, 0.8),  /* cyan */
+      rgba(236, 252, 203, 0.8)   /* lime */
+    );
+  }
+  66% {
+    background: linear-gradient(to bottom right,
+      rgba(254, 242, 242, 0.8),  /* red-50 */
+      rgba(254, 215, 215, 0.8),  /* red-100 */
+      rgba(254, 226, 226, 0.8)   /* red-50 */
+    );
+  }
+  100% {
+    background: linear-gradient(to bottom right,
+      rgba(199, 210, 254, 0.8),  /* indigo-100 */
+      rgba(221, 214, 254, 0.8),  /* purple-100 */
+      rgba(252, 231, 243, 0.8)   /* pink-100 */
+    );
+  }
+}
+
+.flash-colors {
+  animation: flashColors 0.3s ease-in-out;
+}
+
+/* Optional: Add a smooth transition for background changes */
+.min-h-screen {
+  transition: background 0.3s ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+  }
+}
+
+.floating-square {
+  animation: float linear infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Add these styles to your globals.css */
+
+/* Hover effect for dropdown buttons */
+.dropdown-option {
+  @apply relative px-4 py-2 cursor-pointer transition-all duration-200;
+  @apply hover:bg-blue-50 hover:text-blue-600;
+}
+
+/* Optional: Add a subtle slide effect */
+.dropdown-option::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500;
+  @apply transition-all duration-200;
+}
+
+.dropdown-option:hover::after {
+  @apply w-full;
+}
+
+/* Optional: Add scale effect to the icon */
+.dropdown-option-icon {
+  @apply transition-transform duration-200;
+}
+
+.dropdown-option:hover .dropdown-option-icon {
+  @apply transform scale-110;
+}
+
+/* Base styles for the select dropdowns */
+.convert-select {
+  width: 200px;
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect 1: Border and ring */
+.convert-select:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+/* Hover effect 2: Scale and shadow */
+.convert-select-scale:hover {
+  border-color: #3b82f6;
+  transform: scale(1.02);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect 3: Background change */
+.convert-select-bg:hover {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+/* Hover effect 4: Gradient border */
+.convert-select-gradient:hover {
+  background: white;
+  border: 1px solid transparent;
+  background-image: linear-gradient(white, white), 
+                    linear-gradient(to right, #3b82f6, #8b5cf6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Hover effect 5: Glow effect */
+.convert-select-glow:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Focus styles */
+.convert-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+/* Custom arrow styles */
+.select-wrapper {
+  position: relative;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280;
+  transition: color 0.2s ease-in-out;
+}
+
+.convert-select:hover + .select-arrow {
+  color: #3b82f6;
+}
+
+/* Hover effect for dropdown options */
+select option:hover,
+select option:focus,
+select option:active,
+select option:checked {
+  background: linear-gradient(#3b82f6, #3b82f6);
+  background-color: #3b82f6 !important; /* For browsers that don't support gradient */
+  color: white !important;
+}
+
+/* Dropdown options ke liye hover effect */
+option:hover {
+  background-color: #3b82f6 !important;
+  color: white !important;
+}
+
+/* Dropdown option hover effects */
+select option:hover {
+  background-color: #e6f2ff !important;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+/* When option is selected/active */
+select option:checked {
+  background-color: #3b82f6 !important;
+  color: white !important;
+}
+
+/* Add this to your CSS file */
+option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+option:hover {
+  background-color: #e6f2ff;
+  color: #2563eb;
+}
+
+select option:hover {
+  background: #e6f2ff;
+  color: #2563eb;
+}
+
+select option:checked {
+  background: #2563eb;
+  color: white;
+}
+
+select option {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.1), transparent);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+select option:hover {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+}
+
+select option:checked {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.2));
+}
+
+/* Targeting specifically the "Convert From" dropdown options */
+select[name="convertFrom"] option {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.1), transparent);
+  padding: 8px 12px;
+}
+
+select[name="convertFrom"] option:hover {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+}
+
+/* Style for Convert From dropdown options */
+.convert-from option {
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.convert-from option:hover {
+  background: linear-gradient(to right, #e6f2ff, transparent);
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.convert-from option:checked {
+  background: linear-gradient(to right, #3b82f6, transparent);
+  color: white;
+}
